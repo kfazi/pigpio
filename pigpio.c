@@ -7357,7 +7357,7 @@ static int initCheckPermitted(void)
       return -1;
    }
 
-   if ((fdMem = open("/dev/mem", O_RDWR | O_SYNC) ) < 0)
+   if ((fdMem = open("/dev/gpiomem", O_RDWR | O_SYNC) ) < 0)
    {
       DBG(DBG_ALWAYS,
          "\n" \
@@ -8329,7 +8329,7 @@ int initInitialise(void)
 
    if (initAllocDMAMem() < 0) return PI_INIT_FAILED;
 
-   /* done with /dev/mem */
+   /* done with /dev/gpiomem */
 
    if (fdMem != -1)
    {
